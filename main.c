@@ -4,13 +4,14 @@ int main(int argc, char const *argv[])
 
     char name[15],branch[10];
     char roll[10];
+    char a;
     FILE *filepointer;
     filepointer = fopen("alidata2.csv","a+");
     if (filepointer == NULL)
     {
         printf("Not able to open file");
     }
-    for (int i = 1; i < 5; i++)
+    for (int i = 1; i < 3; i++)
     {
     printf("Enter Name:");
     scanf("%s",&name);
@@ -27,6 +28,20 @@ int main(int argc, char const *argv[])
 
     }
     fclose(filepointer);
+    filepointer = fopen("alidata2.csv", "r");
+        printf("File opened successfully. Reading file contents character by character. \n\n");
 
+    do 
+    {
+        a = fgetc(filepointer);
+
+
+        putchar(a);
+
+    } while(a != EOF);
+
+
+
+fclose(filepointer);
     return 0;
 }
